@@ -11,6 +11,7 @@ def  euclidDistance(prefs, person1, person2):
 
     return 1/(1 + sqrt(sumOfSquares))
 
+
 def pearsonDistance(prefs, person1, person2):
     si = {}
     for item in prefs[person1]:
@@ -36,6 +37,7 @@ def pearsonDistance(prefs, person1, person2):
     if den == 0:
         return 0
     return num / den
+
 
 def topMatches(prefs, person, n=5, similarity = pearsonDistance()):
     scores = [similarity(prefs, person, other) for other in prefs if person != other]
