@@ -94,8 +94,8 @@ venv.bak/
 *.iml
 *.ipr
 *.iws
-*.xml
 .idea/
+
 # Spyder project settings
 .spyderproject
 .spyproject
