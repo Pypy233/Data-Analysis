@@ -1,5 +1,5 @@
 from math import sqrt
-def simDistance(prefs, person1, person2):
+def  euclidDistance(prefs, person1, person2):
     si = {}
     for item in prefs[person1]:
         if item in person2:
@@ -11,7 +11,7 @@ def simDistance(prefs, person1, person2):
 
     return 1/(1 + sqrt(sumOfSquares))
 
-def simPearson(prefs, person1, person2):
+def pearsonDistance(prefs, person1, person2):
     si = {}
     for item in prefs[person1]:
         if item in prefs[person2]:
@@ -26,13 +26,19 @@ def simPearson(prefs, person1, person2):
     squareSum2 = pow(sum([prefs[person2][item] for item in si]), 2)
 
 
-    pearsonSum=sum([prefs[person1][item]*prefs[person2][item] for item in si])
+    pearsonSum = sum([prefs[person1][item]*prefs[person2][item] for item in si])
 
     num = pearsonSum - (sum1 * sum2 / len(si))
 
 
-    den = sqrt(squareSum1 - pow(sum1, 2)/ len(si)) + sqrt(squareSum2 - pow(sum2, 2))
+    den = sqrt(squareSum1 - pow(sum1, 2) / len(si)) + sqrt(squareSum2 - pow(sum2, 2))
 
     if den == 0:
         return 0
-    return num/den
+    return num / den
+
+def topMatches(prefs, person, n=5, similarity = pearsonDistance()):
+    scores = [similarity(prefs, person, other) for other in prefs if person != other]
+    scores.sort();
+    scores.remove();
+    return scores[0:n]
