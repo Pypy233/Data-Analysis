@@ -5,9 +5,10 @@ import pandas as pd, numpy as np
 from pandas import DataFrame, Series
 from matplotlib import pyplot
 
-def print_line():
-    print('-----------------------------------------------------------------------------------------------------')
 
+def print_line():
+    for i in range(0, 100):
+        print('-', end = '')
 
 path = 'data/example.txt'
 records = [json.loads(line) for line in open(path)]
@@ -20,6 +21,7 @@ print_line()
 timeZones = [rec['tz'] for rec in records if 'tz' in rec]
 print(timeZones)
 print_line()
+
 
 def get_counts(sequence):
     counts = df(int)
@@ -65,6 +67,5 @@ tz_counts = clean_tz.value_counts()
 print(tz_counts[:10])
 print_line()
 
-tz_counts.plot()
 pyplot.plot(tz_counts)
-pyplot.savefig('output/jsonAnalysis.png')
+pyplot.savefig('out/jsonAnalysis.png')
