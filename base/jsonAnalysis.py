@@ -3,7 +3,7 @@ from collections import defaultdict as df
 from collections import Counter
 import pandas as pd, numpy as np
 from pandas import DataFrame, Series
-
+from matplotlib import pyplot
 
 def print_line():
     print('-----------------------------------------------------------------------------------------------------')
@@ -57,3 +57,14 @@ print_line()
 tz_counts = frame['tz'].value_counts()
 print(tz_counts[:10])
 print_line()
+
+
+clean_tz = frame['tz'].fillna('Missing')
+clean_tz[clean_tz == ''] = 'Unknown'
+tz_counts = clean_tz.value_counts()
+print(tz_counts[:10])
+print_line()
+
+tz_counts.plot()
+pyplot.plot(tz_counts)
+pyplot.savefig('output/jsonAnalysis.png')
