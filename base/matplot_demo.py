@@ -14,6 +14,6 @@ plt.xlabel('Time(s)')
 plt.ylabel('Volt')
 plt.title('A Simple Demo')
 plt.ylim(0, 2)
-plt.legend
+plt.legend()
 plt.savefig('out/demo.png')
 plt.show()
