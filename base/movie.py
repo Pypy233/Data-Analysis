@@ -3,17 +3,17 @@ import pandas as pd
 unames = ['user_id', 'gender', 'age', 'occupation', 'zip']
 users = pd.read_table('/Users/py/Downloads/pydata-book-2nd-edition/'
                       'datasets/movielens/users.dat', sep='::', header=None,
-                      names=unames)
+                      names=unames, engine='python')
 
 rnames = ['user_id', 'movie_id', 'rating', 'timestamp']
 ratings = pd.read_table('/Users/py/Downloads/pydata-book-2nd-edition/'
                         'datasets/movielens/ratings.dat', sep='::', header=None,
-                        names=rnames)
+                        names=rnames, engine='python')
 
 mnames = ['movie_id', 'title', 'genres']
 movies = pd.read_table('/Users/py/Downloads/pydata-book-2nd-edition/'
                       'datasets/movielens/movies.dat', sep='::', header=None,
-                       names=mnames)
+                       names=mnames, engine='python')
 
 
 def print_table():
