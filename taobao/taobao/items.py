@@ -6,16 +6,13 @@
 # https://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-from scrapy import Item, Field
+from scrapy import Item
 
 
 class TaobaoItem(Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    name = Field()
-    shop = Field()
-    fans = Field()
-    collection = Field()
-    price = Field()
-    pre_ordered = Field()
-    discounts = Field()
+    GOODS_URL = scrapy.Field()
+    GOODS_PRICE = scrapy.Field()
+    GOODS_NAME = scrapy.Field()
+    SHOP_NAME = scrapy.Field()
+    SHOP_URL = scrapy.Field()
+
