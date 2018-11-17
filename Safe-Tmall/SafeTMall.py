@@ -60,7 +60,9 @@ class SafeTMall:
 
 
 def main():
-    tmall = SafeTMall('显示器')
+    print('Enter the keywords, like 键盘 etc...')
+    keywords = input()
+    tmall = SafeTMall(keywords)
     for i in range(1, tmall.max_page + 1):
         tmall.index_page(i)
     tmall.driver.close()

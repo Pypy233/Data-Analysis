@@ -9,14 +9,6 @@ class CsvUtil:
             csv_head = ['商品', '店铺', '价格', '成交量', '图片链接', '地点']
             csv_writer.writerow(csv_head)
 
-    '''product = {
-                   'image': item.find('.pic .img').attr('data-src'),
-                   'price': item.find('.price').text(),
-                   'deal': item.find('.deal-cnt').text(),
-                   'title': item.find('.title').text(),
-                   'shop': item.find('.shop').text(),
-                   'location': item.find('.location').text()
-               }'''
     def write_csv(self, product_dict):
         with open(self.file_name + '.csv', 'a+') as file:
             csv_writer = csv.writer(file)
